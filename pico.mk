@@ -81,29 +81,7 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/files/init.pico.usb.rc:root/init.pico.usb.rc \
 
 # Prebuilt Binaries
-PRODUCT_COPY_FILES += \
-    vendor/htc/pico/proprietary/bin/awb_camera:system/bin/awb_camera \
-    vendor/htc/pico/proprietary/bin/bma150_usr:system/bin/bma150_usr \
-    vendor/htc/pico/proprietary/bin/btld:system/bin/btld \
-    vendor/htc/pico/proprietary/bin/cam_ins_spmo:system/bin/cam_ins_spmo \
-    vendor/htc/pico/proprietary/bin/charging:system/bin/charging \
-    vendor/htc/pico/proprietary/bin/htc_ebdlogd:system/bin/htc_ebdlogd \
-    vendor/htc/pico/proprietary/bin/htcfs:system/bin/htcfs \
-    vendor/htc/pico/proprietary/bin/ipd:system/bin/ipd \
-    vendor/htc/pico/proprietary/bin/logcat2:system/bin/logcat2 \
-    vendor/htc/pico/proprietary/bin/lsc_camera:system/bin/lsc_camera \
-    vendor/htc/pico/proprietary/bin/mm-qcamera-test:system/bin/mm-qcamera-test \
-    vendor/htc/pico/proprietary/bin/mm-qcamera-testsuite-client-awb:system/bin/mm-qcamera-testsuite-client-awb \
-    vendor/htc/pico/proprietary/bin/netsharing:system/bin/netsharing \
-    vendor/htc/pico/proprietary/bin/rild:system/bin/rild \
-    vendor/htc/pico/proprietary/bin/ser2net:system/bin/ser2net \
-    vendor/htc/pico/proprietary/bin/snd:system/bin/snd \
-    vendor/htc/pico/proprietary/bin/snd8k:system/bin/snd8k \
-    vendor/htc/pico/proprietary/bin/tc:system/bin/tc \
-    vendor/htc/pico/proprietary/bin/tund:system/bin/tund \
-    vendor/htc/pico/proprietary/bin/udhcpd:system/bin/udhcpd\
-    vendor/htc/pico/proprietary/bin/wireless_modem:system/xbin/wireless_modem \
-    vendor/htc/pico/proprietary/bin/zchgd:system/bin/zchgd \
+# Don't work on 4.0.4 because from 2.3.5! And we don't need this !
 
 # Prebuilt Modules
 PRODUCT_COPY_FILES += \
@@ -121,10 +99,12 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/firmware/fw_bcm4330b2_apsta.bin:system/etc/firmware/fw_bcm4330b2_apsta.bin \
     
 # SD Card
-PRODUCT_COPY_FILES += \
-    device/htc/pico/files/etc/vold.fstab:system/etc/vold.fstab \
+# We don't need this
+#PRODUCT_COPY_FILES += \
+#   device/htc/pico/files/etc/vold.fstab:system/etc/vold.fstab \
 
 # Audio
+# Need all audio filters
 PRODUCT_COPY_FILES += \
     device/htc/pico/files/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
     device/htc/pico/files/etc/media_profiles.xml:system/etc/media_profiles.xml \
@@ -143,79 +123,25 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
 
 # Sensors
-PRODUCT_COPY_FILES += \
-    vendor/htc/pico/proprietary/lib/hw/sensors.pico.so:system/lib/hw/sensors.pico.so \
-    vendor/htc/pico/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
+# Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
     
 # GPS
-PRODUCT_COPY_FILES += \
-    vendor/htc/pico/proprietary/lib/hw/gps.pico.so:system/lib/hw/gps.pico.so \
-    vendor/htc/pico/proprietary/lib/libloc_api-rpc.so:system/lib/libloc_api-rpc.so \
+# Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
 
 # 3D
-PRODUCT_COPY_FILES += \
-#    vendor/htc/pico/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
-#    vendor/htc/pico/proprietary/lib/hw/copybit.msm7k.so:system/lib/hw/copybit.msm7k.so \
-    vendor/htc/pico/proprietary/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
-    vendor/htc/pico/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
-    vendor/htc/pico/proprietary/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
-    vendor/htc/pico/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
-    vendor/htc/pico/proprietary/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
-    vendor/htc/pico/proprietary/lib/libgsl.so:system/lib/libgsl.so \
-    vendor/htc/pico/proprietary/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
-    vendor/htc/pico/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-    vendor/htc/pico/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
+# Don't work on 4.0.4 because from 2.3.5! We need Adreno egl drivers for ICS from qualcomm dev site!
 
 # Camera
-PRODUCT_COPY_FILES += \
-    vendor/htc/pico/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
-    vendor/htc/pico/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
-    vendor/htc/pico/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
-    vendor/htc/pico/proprietary/lib/libcameraface.so:system/lib/libcameraface.so \
-    vendor/htc/pico/proprietary/lib/libcamerapp.so:system/lib/libcamerapp.so \
-    vendor/htc/pico/proprietary/lib/libcapsjava.so:system/lib/libcapsjava.so \
-    vendor/htc/pico/proprietary/lib/libscaladoapi.so:system/lib/libscaladoapi.so \
-    vendor/htc/pico/proprietary/lib/libscalado_htcalbum2.so:system/lib/libscalado_htcalbum2.so \
-    vendor/htc/pico/proprietary/lib/libscaladoutil.so:system/lib/libscaladoutil.so \
+# Don't work on 4.0.4 because from 2.3.5! An
 
 # RIL
-PRODUCT_COPY_FILES += \
-    vendor/htc/pico/proprietary/lib/libril.so:system/lib/libril.so \
-    vendor/htc/pico/proprietary/lib/libril_status.so:system/lib/libril_status.so \
-    vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
-    vendor/htc/pico/proprietary/lib/libhtc_ril_switch.so:system/lib/libhtc_ril_switch.so \
-    vendor/htc/pico/proprietary/lib/libreference-ril.so:system/lib/libreference-ril.so \
-    vendor/htc/pico/proprietary/lib/libreference-cdma-sms.so:system/lib/libreference-cdma-sms.so \
-
+# Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
 
 #CHROMATIX
-PRODUCT_COPY_FILES += \
-    vendor/htc/pico/proprietary/lib/libchromatix_mt9t013_default_video.so:system/lib/libchromatix_mt9t013_default_video.so \
-    vendor/htc/pico/proprietary/lib/libchromatix_mt9t013_preview.so:system/lib/libchromatix_mt9t013_preview.so \
+# Don't work on 4.0.4 because from 2.3.5! We don't need this!
 
 # OMX & MISC.
-PRODUCT_COPY_FILES += \
-    vendor/htc/pico/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
-#   vendor/htc/pico/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
-#   vendor/htc/pico/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
-#   vendor/htc/pico/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
-    device/htc/pico/prebuilt/lib/libhciutils.so:system/lib/libhciutils.so \
-    vendor/htc/pico/proprietary/lib/libOlaEngine.so:system/lib/libOlaEngine.so \
-    vendor/htc/pico/proprietary/lib/libwsp.so:system/lib/libwsp.so \
-#   vendor/htc/pico/proprietary/lib/libstagefrighthw.so:system/lib/libstagefrighthw.so \
-    vendor/htc/pico/proprietary/lib/libwsp_jni.so:system/lib/libwsp_jni.so \
-    vendor/htc/pico/proprietary/lib/libwebkitaccel.so:system/lib/libwebkitaccel.so \
-    vendor/htc/pico/proprietary/lib/libOpenVG.so:system/lib/libOpenVG.so \
-    vendor/htc/pico/proprietary/lib/libext2_blkid.so:system/lib/libext2_blkid.so \
-    vendor/htc/pico/proprietary/lib/libext2_com_err.so:system/lib/libext2_com_err.so \
-    vendor/htc/pico/proprietary/lib/libext2_e2p.so:system/lib/libext2_e2p.so \
-    vendor/htc/pico/proprietary/lib/libext2fs.so:system/lib/libext2fs.so \
-    vendor/htc/pico/proprietary/lib/libext2_profile.so:system/lib/libext2_profile.so \
-    vendor/htc/pico/proprietary/lib/libext2_uuid.so:system/lib/libext2_uuid.so \
-    device/htc/pico/prebuilt/etc/init.d/93zram:system/etc/init.d/93zram \
-    device/htc/pico/prebuilt/compcache:system/bin/compcache \
-    device/htc/pico/prebuilt/handle_compcache:system/bin/handle_compcache \
-    device/htc/pico/prebuilt/zram_stats:system/bin/zram_stats \
+# Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
     vendor/htc/pico/proprietary/etc/gps.conf:system/etc \
     vendor/htc/pico/proprietary/etc/spn-conf.xml:system/etc \
 
@@ -248,9 +174,7 @@ PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
 
 # Camera 
-PRODUCT_COPY_FILES += \
-     device/htc/pico/prebuilt/lib/libcamera.so:obj/lib/libcamera.so \
-     device/htc/pico/prebuilt/lib/libcamera.so:system/lib/libcamera.so \
+# Don't work on 4.0.4 because from 2.3.5! Need open source drivers for ics from qualcomm or need hack for 2.3.5 proprietary
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.camera=pico \
