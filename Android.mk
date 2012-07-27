@@ -17,5 +17,5 @@
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),pico)
 include $(call first-makefiles-under,$(call my-dir))
 endif
-  include $(call all-named-subdir-makefiles, bdaddr_read gadget_id hwaddrs libcamera libaudio libcopybit)
+  include $(call all-named-subdir-makefiles, bdaddr_read gadget_id hwaddrs libcamera libaudio libcopybit libgralloc liblights)
 #endif

@@ -13,22 +13,20 @@
 # limitations under the License.
 
 
-LOCAL_PATH := $(call my-dir)
-
+LOCAL_PATH:= $(call my-dir)
 # HAL module implemenation stored in
-# hw/<OVERLAY_HARDWARE_MODULE_ID>.<ro.product.board>.so
+# hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
-LOCAL_SHARED_LIBRARIES := liblog libcutils
+LOCAL_SRC_FILES := lights.c
 
-LOCAL_SRC_FILES := 	\
-	allocator.cpp 	\
-	gralloc.cpp 	\
-	framebuffer.cpp \
-	mapper.cpp
-	
-LOCAL_MODULE := gralloc.msm7k
+
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+
+LOCAL_SHARED_LIBRARIES := liblog
+
+LOCAL_MODULE := lights.$(TARGET_BOARD_PLATFORM)
+
 LOCAL_MODULE_TAGS := optional
-LOCAL_CFLAGS:= -DLOG_TAG=\"gralloc\"
+
 include $(BUILD_SHARED_LIBRARY)
