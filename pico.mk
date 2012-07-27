@@ -98,11 +98,6 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/firmware/fw_bcm4330b2.bin:system/etc/firmware/fw_bcm4330b2.bin \
     device/htc/pico/prebuilt/etc/firmware/fw_bcm4330b2_apsta.bin:system/etc/firmware/fw_bcm4330b2_apsta.bin \
     
-# SD Card
-# We don't need this
-#PRODUCT_COPY_FILES += \
-#   device/htc/pico/files/etc/vold.fstab:system/etc/vold.fstab \
-
 # Audio
 # Need all audio filters
 PRODUCT_COPY_FILES += \
@@ -128,8 +123,26 @@ PRODUCT_COPY_FILES += \
 # GPS
 # Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
 
-# 3D
-# Don't work on 4.0.4 because from 2.3.5! We need Adreno egl drivers for ICS from qualcomm dev site!
+# 3D(ICS Blobs)
+    device/htc/pico/prebuilt/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+    device/htc/pico/prebuilt/etc/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
+    device/htc/pico/prebuilt/etc/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
+    device/htc/pico/prebuilt/etc/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
+    device/htc/pico/prebuilt/etc/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw \
+    device/htc/pico/prebuilt/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+    device/htc/pico/prebuilt/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+    device/htc/pico/prebuilt/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+    device/htc/pico/prebuilt/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    device/htc/pico/prebuilt/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
+    device/htc/pico/prebuilt/lib/libC2D2.so:system/lib/libC2D2.so \
+    device/htc/pico/prebuilt/lib/libgsl.so:system/lib/libgsl.so \
+    device/htc/pico/prebuilt/lib/libOpenVG.so:system/lib/libOpenVG.so \
+    device/htc/pico/prebuilt/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so \
+    device/htc/pico/prebuilt/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
+    device/htc/pico/prebuilt/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
+    device/htc/pico/prebuilt/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
+    device/htc/pico/prebuilt/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
+    device/htc/pico/prebuilt/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
 
 # Camera
 # Don't work on 4.0.4 because from 2.3.5! An
