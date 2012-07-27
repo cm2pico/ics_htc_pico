@@ -48,6 +48,11 @@ PRODUCT_PACKAGES += \
     hwaddrs
     #gps.pico
 
+# Set usb type
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    persist.sys.usb.config=mass_storage \
+    persist.service.adb.enable=1
+
 PRODUCT_LOCALES := en_GB
 
 $(call inherit-product, build/target/product/full.mk)
