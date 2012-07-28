@@ -44,9 +44,8 @@ PRODUCT_PACKAGES += \
     libcamera \
     gadget_id \
     bash \
-    dexpreopt 
-    hwaddrs
-    #gps.pico
+    dexpreopt \
+    hwaddrs 
 
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -124,7 +123,7 @@ PRODUCT_COPY_FILES += \
 # Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
 
 # 3D(ICS Blobs)
-    device/htc/pico/prebuilt/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
     device/htc/pico/prebuilt/etc/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
     device/htc/pico/prebuilt/etc/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
@@ -142,7 +141,7 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
     device/htc/pico/prebuilt/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
     device/htc/pico/prebuilt/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
-    device/htc/pico/prebuilt/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
+    device/htc/pico/prebuilt/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so 
 
 # Camera
 # Don't work on 4.0.4 because from 2.3.5! An
@@ -155,6 +154,7 @@ PRODUCT_COPY_FILES += \
 
 # OMX & MISC.
 # Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
+PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/etc/gps.conf:system/etc \
     vendor/htc/pico/proprietary/etc/spn-conf.xml:system/etc \
 
