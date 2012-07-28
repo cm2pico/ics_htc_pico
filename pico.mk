@@ -15,8 +15,8 @@
 # proprietary side of the device
 # Inherit from those products. Most specific first
 
-PRODUCT_AAPT_CONFIG := normal ldpi
-PRODUCT_AAPT_PREF_CONFIG := ldpi
+PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 $(call inherit-product-if-exists, vendor/htc/pico/pico-vendor.mk)
 
