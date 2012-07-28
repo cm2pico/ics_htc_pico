@@ -15,7 +15,8 @@
 # proprietary side of the device
 # Inherit from those products. Most specific first
 
-$(call inherit-product-if-exists, vendor/htc/pico/pico-vendor.mk)
+# We havent decided what props we need,yet
+# $(call inherit-product-if-exists, vendor/htc/pico/pico-vendor.mk)
 
 # Video decoding
 PRODUCT_PACKAGES += \
@@ -102,6 +103,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.service.adb.enable=1
 
 $(call inherit-product, build/target/product/full.mk)
+DEVICE_PACKAGE_OVERLAYS += device/htc/pico/overlay
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
@@ -119,8 +121,6 @@ PRODUCT_COPY_FILES += \
 # Vold 
 PRODUCT_COPY_FILES += \
     device/htc/pico/files/etc/vold.fstab:system/etc/vold.fstab 
-
-
 
 # Prebuilt Binaries
 # Don't work on 4.0.4 because from 2.3.5! And we don't need this !

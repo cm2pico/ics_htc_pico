@@ -19,9 +19,9 @@ COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT
 
 # Needs Review
 #BOARD_CAMERA_USE_GETBUFFERINFO := true
-#BOARD_USE_CAF_LIBCAMERA := true
 # This is needed by libcamera.so
 BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
+BOARD_USE_CAF_LIBCAMERA := true
 
 # Arch related defines
 TARGET_BOARD_PLATFORM := msm7x27
@@ -75,14 +75,10 @@ TARGET_SPECIFIC_HEADER_PATH := device/htc/pico/include
 # OpenGL drivers config file path
 BOARD_EGL_CFG := device/htc/pico/configs/egl.cfg
 BOARD_USES_QCOM_HARDWARE := true
-COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_USES_QCOM_LIBS := true
 TARGET_GRALLOC_USES_ASHMEM := true
 COMMON_GLOBAL_CFLAGS += -DTARGET_MSM7x27
-
-
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
@@ -94,7 +90,6 @@ WIFI_DRIVER_FW_AP_PATH      := "/system/etc/firmware/fw_bcm4330b2_a1psta.bin"
 WIFI_DRIVER_MODULE_ARG      := "firmware_path=/system/etc/firmware/fw_bcm4330b2.bin nvram_path=/proc/calibration"
 WIFI_DRIVER_MODULE_NAME     := "bcm4330"
 WIFI_DRIVER_HAS_HTC_SOFTAP  := true
-
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/pico/releasetools

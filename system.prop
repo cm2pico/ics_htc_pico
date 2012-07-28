@@ -19,6 +19,13 @@ persist.rild.nitz_short_ons_3=
 ro.ril.hep = 1
 ro.ril.enable.dtm = 0
 ro.ril.hsdpa.category = 8
+ro.telephony.ril_class=HWQcomRIL
+debug.sf.hw=1
+sys.usb.config=mass_storage,adb
+persist.sys.usb.config=mass_storage,adb
+persist.service.adb.enable=1
+persist.sys.use_dithering=1
+com.qc.hardware=true
 
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config = max_retries=3, 2000, 2000, 2000
