@@ -15,44 +15,91 @@
 # proprietary side of the device
 # Inherit from those products. Most specific first
 
-PRODUCT_AAPT_CONFIG := normal mdpi
-PRODUCT_AAPT_PREF_CONFIG := mdpi
-
 $(call inherit-product-if-exists, vendor/htc/pico/pico-vendor.mk)
-
-# Graphics 
-PRODUCT_PACKAGES += \
-   libmemalloc \
-   libQcomUI \
-   libgralloc \
-   libcopybit
 
 # Video decoding
 PRODUCT_PACKAGES += \
+    libstagefrighthw \
     libmm-omxcore \
     libOmxCore \
     libOmxVidEnc 
-
-# Apps
+    
+# Graphics 
 PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory \
-    FM 
+    gralloc.msm7x27 \
+    copybit.msm7x27 \
+    hwcomposer.msm7x27 \
+    libtilerenderer \
+    libQcomUI
+    
+# Audio
+PRODUCT_PACKAGES += \
+    audio.primary.pico \
+    audio_policy.pico \
+    audio.a2dp.default \
+    libaudioutils
 
 # Other
 PRODUCT_PACKAGES += \
-    librs_jni \
-    libcamera \
+    dexpreopt \
+    lights.pico \
+    gps.pico    
+    
+# Camera
+PRODUCT_PACKAGES += \
+    camera.msm7x27    
+    
+# Misc
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory
+
+# Other
+PRODUCT_PACKAGES += \
     gadget_id \
     bash \
-    dexpreopt \
-    hwaddrs 
+    hwaddrs \    
 
+## Hardware properties 
+PRODUCT_COPY_FILES += \
+    frameworks/base/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
+    frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/base/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
+    frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/base/data/etc/platform.xml:system/etc/permissions/platform.xml \
+    frameworks/base/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
+    frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml    
+
+# Init
+PRODUCT_COPY_FILES += \
+    device/htc/pico/files/init.pico.rc:root/init.pico.rc \
+    device/htc/pico/files/ueventd.pico.rc:root/ueventd.pico.rc \
+    device/htc/pico/files/init.pico.usb.rc:root/init.pico.usb.rc \
+    
+## Camera
+#PRODUCT_COPY_FILES += \
+#    device/samsung/trebon/prebuilt/system/lib/hw/camera.trebon.so:system/lib/hw/camera.trebon.so \
+#    device/samsung/trebon/prebuilt/system/lib/libcamera.so:system/lib/libcamera.so \
+#    device/samsung/trebon/prebuilt/system/lib/lib/system/libcamera_client.so:system/lib/libcamera_client.so \
+#    device/samsung/trebon/prebuilt/system/lib/lib/system/libcameraservice.so:system/lib/libcameraservice.so \
+#    device/samsung/trebon/prebuilt/system/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
+#    device/samsung/trebon/prebuilt/system/lib/libmmgsdilib.so:system/lib/libmmgsdilib.so \
+#    device/samsung/trebon/prebuilt/system/lib/libmmipl.so:system/lib/libmmipl.so \
+#    device/samsung/trebon/prebuilt/system/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+#    device/samsung/trebon/prebuilt/system/lib/libmm-omxcore.so:system/lib/libmm-omxcore.so \
+#    device/samsung/trebon/prebuilt/system/lib/liboemcamera.so:system/lib/liboemcamera.so    
+    
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.sys.usb.config=mass_storage \
     persist.service.adb.enable=1
-
-PRODUCT_LOCALES := en_GB
 
 $(call inherit-product, build/target/product/full.mk)
 
@@ -73,11 +120,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/pico/files/etc/vold.fstab:system/etc/vold.fstab 
 
-# Init
-PRODUCT_COPY_FILES += \
-    device/htc/pico/files/init.pico.rc:root/init.pico.rc \
-    device/htc/pico/files/ueventd.pico.rc:root/ueventd.pico.rc \
-    device/htc/pico/files/init.pico.usb.rc:root/init.pico.usb.rc \
+
 
 # Prebuilt Binaries
 # Don't work on 4.0.4 because from 2.3.5! And we don't need this !
@@ -156,7 +199,7 @@ PRODUCT_COPY_FILES += \
 # Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/etc/gps.conf:system/etc \
-    vendor/htc/pico/proprietary/etc/spn-conf.xml:system/etc \
+    vendor/htc/pico/proprietary/etc/spn-conf.xml:system/etc 
 
 # Audio DSP Profiles
 PRODUCT_COPY_FILES += \
@@ -181,10 +224,6 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/usr/keylayout/BT_HID.kl:system/usr/keylayout/BT_HID.kl \
     device/htc/pico/prebuilt/usr/keylayout/pico-keypad.kl:system/usr/keylayout/pico-keypad.kl
     device/htc/pico/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-# BT startup
-# Under Consideration
-# PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
 
 # Camera 
 # Don't work on 4.0.4 because from 2.3.5! Need open source drivers for ics from qualcomm or need hack for 2.3.5 proprietary
@@ -208,4 +247,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-http=true \
     media.stagefright.enable-aac=true \
     media.stagefright.enable-qcp=true
-
+    
+PRODUCT_LOCALES := en_GB
+PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
