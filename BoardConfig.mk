@@ -73,7 +73,7 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 TARGET_SPECIFIC_HEADER_PATH := device/htc/pico/include
 
 # OpenGL drivers config file path
-BOARD_EGL_CFG := device/htc/pico/configs/egl.cfg
+BOARD_EGL_CFG := device/htc/pico/prebuilt/lib/egl/egl.cfg
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_USES_QCOM_LIBS := true
