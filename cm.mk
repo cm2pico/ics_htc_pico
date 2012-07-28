@@ -17,7 +17,7 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 $(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/htc/pico.mk)
+$(call inherit-product, device/htc/pico/pico.mk)
 
 # Include FM-Radio stuff
 #$(call inherit-product, vendor/cm/products/bcm_fm_radio.mk)
