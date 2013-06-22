@@ -18,6 +18,8 @@
 # We havent decided what props we need,yet
 # $(call inherit-product-if-exists, vendor/htc/pico/pico-vendor.mk)
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
 # Video decoding
 PRODUCT_PACKAGES += \
     libstagefrighthw \
@@ -102,7 +104,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.sys.usb.config=mass_storage \
     persist.service.adb.enable=1
 
-$(call inherit-product, build/target/product/full.mk)
 DEVICE_PACKAGE_OVERLAYS += device/htc/pico/overlay
 
 # Publish that we support the live wallpaper feature.
